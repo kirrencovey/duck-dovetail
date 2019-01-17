@@ -11,9 +11,9 @@ const displayShoppingCart = () => {
             cartEl.innerHTML +=
             `
             <section class="shoppingCart__item">
-            <div>${product.name}</div>
+            <div class="shoppingCart__itemName">${product.name}</div>
             <div class="shoppingCart__quantity">qty: ${product.qty}</div>
-            <div>${(product.price * product.qty).toLocaleString("en-US", {
+            <div class="shoppingCart__itemPrice">${(product.price * product.qty).toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD"
             })}</div>
@@ -50,7 +50,6 @@ const displayShoppingCart = () => {
                     objectToManipulate.qty--
                 } else {
                     shoppingCart.splice(indexToManipulate, 1)
-                    delete objectToManipulate.qty
                 }
                 displayShoppingCart()
             }

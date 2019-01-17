@@ -40,7 +40,20 @@ body {
     border-bottom: 1px solid gray;
 }
 
+.shoppingCart__itemName {
+    flex-basis: 25%;
+}
+
 .shoppingCart__quantity {
     font-size: .75em;
     color: grey;
+    flex-basis: 20%;
+}
+
+.shoppingCart__itemPrice {
+    flex-basis: 20%;
+}
+
+.cart_removeButton {
+    flex-basis: 20%;
 }
