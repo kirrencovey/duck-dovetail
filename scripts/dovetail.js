@@ -51,18 +51,43 @@ for (button of allButtons) {
             const foundProduct = products.find((product) => {
                 return parseInt(event.target.id) === product.id
             })
-
+            
             // Only if something was found, add the object to the
             // shopping cart array
             if (foundProduct !== null) {
-                shoppingCart.push(foundProduct)
+            
+                
+                // Find product in cart whose 'id' property is equal to
+                // the 'id' attribute of the button that was clicked on
+                let inCart = shoppingCart.find((product) => {
+                    return parseInt(event.target.id) === product.id
+                })
+                
+    
+                if (inCart) {
+                    inCart.qty++
+                    let quantityPrice = inCart.qty * inCart.price
+
+                    displayShoppingCart()
+                    return quantityPrice
+                }
+            
+            
+                else {
+                    foundProduct.qty = 1
+                    shoppingCart.push(foundProduct)
                 displayShoppingCart()
             }
+            
 
         }
+    }
     )
 
 }
+
+
+
 
 
 

@@ -8,20 +8,23 @@ const displayShoppingCart = () => {
 
     shoppingCart.forEach((product, idx) => {
 
-        cartEl.innerHTML +=
-        `
-        <section class="shoppingCart__item">
-        <div>${product.name}</div>
-        <div>${product.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD"
-        })}</div>
+            cartEl.innerHTML +=
+            `
+            <section class="shoppingCart__item">
+            <div>${product.name}</div>
+            <div class="shoppingCart__quantity">qty: ${product.qty}</div>
+            <div>${(product.price * product.qty).toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD"
+            })}</div>
 
-        <button id="${idx}" class="cart_removeButton">Remove</button>
-        </section>
-        `
+            
+            <button id="${idx}" class="cart_removeButton">Remove</button>
+            </section>
+            `
 
-        grandTotal += product.price
+            grandTotal += (product.price * product.qty)
+            
     })
 
     cartEl.innerHTML += `
@@ -31,7 +34,7 @@ const displayShoppingCart = () => {
     })}</h3>
     `
 
-    // Get a reference to all purchase buttons
+    // Get a reference to all remove buttons
     const allRemoveButtons = document.querySelectorAll(".cart_removeButton")
 
     // Add a click event listener to each button

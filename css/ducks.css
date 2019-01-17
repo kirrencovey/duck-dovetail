@@ -39,3 +39,8 @@ body {
     justify-content: space-between;
     border-bottom: 1px solid gray;
 }
+
+.shoppingCart__quantity {
+    font-size: .75em;
+    color: grey;
+}
