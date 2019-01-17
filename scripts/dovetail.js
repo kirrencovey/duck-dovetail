@@ -63,16 +63,17 @@ for (button of allButtons) {
                     return parseInt(event.target.id) === product.id
                 })
                 
-    
+                // If the item is already represented in the cart, increase
+                // quantity by 1, and increase the price to reflect new quantity
                 if (inCart) {
                     inCart.qty++
                     let quantityPrice = inCart.qty * inCart.price
-
                     displayShoppingCart()
                     return quantityPrice
                 }
             
-            
+                // If the item is not yet represented in the cart, add it to
+                // the cart and set its quantity to 1
                 else {
                     foundProduct.qty = 1
                     shoppingCart.push(foundProduct)

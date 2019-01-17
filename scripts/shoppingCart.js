@@ -42,8 +42,16 @@ const displayShoppingCart = () => {
         button.addEventListener(
             "click",
             (event) => {
-                const indexToRemove = parseInt(event.target.id)
-                shoppingCart.splice(indexToRemove, 1)
+                const indexToManipulate = parseInt(event.target.id)
+                const objectToManipulate = shoppingCart[indexToManipulate]
+
+                // Decrement quantity by 1, or remove completely if quantity is 1
+                if (objectToManipulate.qty >1) {
+                    objectToManipulate.qty--
+                } else {
+                    shoppingCart.splice(indexToManipulate, 1)
+                    delete objectToManipulate.qty
+                }
                 displayShoppingCart()
             }
         )
