@@ -18,8 +18,11 @@ const displayShoppingCart = () => {
                 currency: "USD"
             })}</div>
 
-            
-            <button id="${idx}" class="cart_removeButton">Remove</button>
+            <div class="button__container">
+                <button id="${idx}" class="cart_removeOneButton">Remove One</button>
+                <button id="${idx}" class="cart_removeAllButton">Remove All</button>
+            </div>
+
             </section>
             `
 
@@ -35,20 +38,19 @@ const displayShoppingCart = () => {
     `
 
     // Get a reference to all remove buttons
-    const allRemoveButtons = document.querySelectorAll(".cart_removeButton")
+    const allRemoveAllButtons = document.querySelectorAll(".cart_removeAllButton")
+    const allRemoveOneButtons = document.querySelectorAll(".cart_removeOneButton")
 
     // Add a click event listener to each button
-    for (const button of allRemoveButtons) {
+    for (const button of allRemoveAllButtons) {
         button.addEventListener(
             "click",
             (event) => {
                 const indexToManipulate = parseInt(event.target.id)
                 const objectToManipulate = shoppingCart[indexToManipulate]
 
-                // Decrement quantity by 1, or remove completely if quantity is 1
-                if (objectToManipulate.qty >1) {
-                    objectToManipulate.qty--
-                } else {
+                // Remove completely
+                if (objectToManipulate.qty >=1) {
                     shoppingCart.splice(indexToManipulate, 1)
                 }
                 displayShoppingCart()
@@ -56,18 +58,24 @@ const displayShoppingCart = () => {
         )
 
     }
+
+    for (const button of allRemoveOneButtons) {
+        button.addEventListener(
+            "click",
+            (event) => {
+                const indexToManipulate = parseInt(event.target.id)
+                const objectToManipulate = shoppingCart[indexToManipulate]
+
+                // Decrement quantity by 1
+                if (objectToManipulate.qty >1) {
+                    objectToManipulate.qty--
+                displayShoppingCart()
+            }
+        }
+
+        )
+
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

@@ -41,7 +41,7 @@ body {
 }
 
 .shoppingCart__itemName {
-    flex-basis: 25%;
+    flex-basis: 30%;
 }
 
 .shoppingCart__quantity {
@@ -54,6 +54,6 @@ body {
     flex-basis: 20%;
 }
 
-.cart_removeButton {
+.button__container {
     flex-basis: 20%;
 }
