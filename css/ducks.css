@@ -10,7 +10,7 @@ body {
 
 
 .product {
-    flex-basis: 31%;
+    flex-basis: 40%;
     border: 2px dotted goldenrod;
     padding: 15px;
 }

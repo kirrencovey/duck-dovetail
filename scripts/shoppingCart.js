@@ -1,5 +1,6 @@
 const shoppingCart = []
 
+// Build HTML element to represent the cart
 const displayShoppingCart = () => {
     const cartEl = document.querySelector("#cartItems")
     cartEl.innerHTML = ""
@@ -49,7 +50,7 @@ const displayShoppingCart = () => {
                 const indexToManipulate = parseInt(event.target.id)
                 const objectToManipulate = shoppingCart[indexToManipulate]
 
-                // Remove completely
+                // Remove from cart completely
                 if (objectToManipulate.qty >=1) {
                     shoppingCart.splice(indexToManipulate, 1)
                 }
@@ -66,7 +67,7 @@ const displayShoppingCart = () => {
                 const indexToManipulate = parseInt(event.target.id)
                 const objectToManipulate = shoppingCart[indexToManipulate]
 
-                // Decrement quantity by 1
+                // Decrement cart quantity by 1
                 if (objectToManipulate.qty >1) {
                     objectToManipulate.qty--
                 displayShoppingCart()
